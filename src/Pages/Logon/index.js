@@ -1,20 +1,33 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
 
 import logoImg from '../../Assets/logo.png';
 import image from '../../Assets/imageLogon.png'
 
-import './style.css';
+import api from '../../Services/api'
 
+import './style.css';
 
 export default function Logon() {
   const history = useHistory();
+  const [usuario, setUsuario] = useState('');
+  const [senha, setSenha] = useState('');
 
-  function handleLogin(e){
+  async function handleLogin(e){
     e.preventDefault();
 
-    history.push('/main')
-    
+    try {
+      const response = await api.post("/login", {usuario, senha});
+
+      localStorage.setItem('token',response.data.token);
+      localStorage.setItem('usuario', usuario)
+      
+      history.push('/main');    
+    }catch(er){
+      alert("Falha no login")
+      setSenha('')
+      setUsuario('')
+    }   
   }
   
   return (
@@ -27,15 +40,15 @@ export default function Logon() {
         
         <input 
           placeholder="Sua ID"
-          //value={id}
-          //onChange = {e => setId(e.target.value)} 
+          value={usuario}
+          onChange = {e => setUsuario(e.target.value)} 
           />
           <input
           className="input-password"
           placeholder="Sua Senha"
           type="password"
-          //value={password}
-          //onChange = {e => setPassword(e.target.value)} 
+          value={senha}
+          onChange = {e => setSenha(e.target.value)} 
           />
         <button type="submit" className="button">Entrar</button>        
       </form>
