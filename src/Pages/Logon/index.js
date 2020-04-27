@@ -15,7 +15,7 @@ export default function Logon() {
 
   async function handleLogin(e){
     e.preventDefault();
-
+    console.log(process.env.REACT_APP_BASE_ENDPOINT)
     try {
       const response = await api.post("/login", {usuario, senha});
 
@@ -27,13 +27,13 @@ export default function Logon() {
       alert("Falha no login")
       setSenha('')
       setUsuario('')
-    }   
+    }  
   }
   
   return (
     <div className="logon-container">
     <section className="form">
-      <img src={logoImg} alt="Be the hero" />
+      <img src={logoImg} alt="SEAS" />
 
       <form onSubmit={handleLogin} >
         <h1>Faça seu logon</h1>
