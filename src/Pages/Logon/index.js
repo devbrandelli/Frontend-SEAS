@@ -15,7 +15,7 @@ export default function Logon() {
 
   async function handleLogin(e){
     e.preventDefault();
-
+    console.log(process.env.REACT_APP_BASE_ENDPOINT)
     try {
       const response = await api.post("/login", {usuario, senha});
 
@@ -27,7 +27,7 @@ export default function Logon() {
       alert("Falha no login")
       setSenha('')
       setUsuario('')
-    }   
+    }  
   }
   
   return (
