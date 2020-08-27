@@ -1,7 +1,9 @@
 form{
     margin: 25px;
 }
-
+#hora {
+    margin-left: 10px;
+}
 .mainLabel{
     min-width: 180px;
 }
@@ -35,6 +37,19 @@ form{
 }
 
 #tempoJundiaiInput{
+    display: flex;
+    flex-direction: row;
+}
+#tempoRuaInput{
+    display: flex;
+    flex-direction: row;
+}
+
+#motivoRuaInput{
+    display: flex;
+    flex-direction: row;
+}
+#sairRuaInput{
     display: flex;
     flex-direction: row;
 }
