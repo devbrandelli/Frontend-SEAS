@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form'
 import Header from '../../Utils/Header'
 import './style.css';
 
 export default function Register() {
     const onSubmit = data => console.log(data);
-    const { register, handleSubmit, watch, errors } = useForm();
+    const { register, handleSubmit } = useForm();
 
     return (
         <div>
