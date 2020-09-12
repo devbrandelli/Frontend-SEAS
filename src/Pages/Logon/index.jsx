@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
 
 import logoImg from '../../Assets/logo.png';
-import image from '../../Assets/imageLogon.png'
+import image from '../../Assets/imageLogon.png';
 
-import api from '../../Services/api'
+import api from '../../Services/api';
 
 import './style.css';
 
