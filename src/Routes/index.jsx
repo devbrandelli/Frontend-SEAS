@@ -1,16 +1,19 @@
 import React from 'react';
-import { Route, Switch} from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 
 import Logon from '../Pages/Logon'
 import Main from '../Pages/Main'
 import Register from '../Pages/Register';
 
-import PrivateRoute from './routes'
+import PrivateRoute from './privateRoutes'
+import LoginRoute from './loginRoute'
 
 export default function Routes(){
   return (
       <Switch>
-        <Route path="/" exact component={Logon} />
+        <LoginRoute path="/" exact>
+          <Logon/>
+        </LoginRoute>
         <PrivateRoute path="/main">
           <Main/>
         </PrivateRoute>

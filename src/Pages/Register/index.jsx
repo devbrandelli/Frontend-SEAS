@@ -2,9 +2,12 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import Header from "../../Utils/Header";
 import "./style.css";
+import api from '../../Services/api';
 
 export default function Register() {
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    api.post("/questionario", {questionario : data})
+  }
   const { register, handleSubmit } = useForm();
 
   return (
@@ -516,19 +519,63 @@ export default function Register() {
         <label>Recebe beneficio: </label>
         <div className="radioLine">
           <input
-            type="radio"
+            type="checkbox"
             id="naoBeneficio"
-            name="naoBeneficio"
+            name="beneficio"
             value="naoBeneficio"
             className="radioInput"
             ref={register}
           />
           <label>Não</label>
+          <input
+            type="checkbox"
+            id="aposentadoria"
+            name="beneficio"
+            value="aposentadoria"
+            className="radioInput"
+            ref={register}
+          />
+          <label>Aposentadoria</label>
+          <input
+            type="checkbox"
+            id="bolsaFamilia"
+            name="beneficio"
+            value="bolsaFamilia"
+            className="radioInput"
+            ref={register}
+          />
+          <label>Bolsa Familia</label>
+          <input
+            type="checkbox"
+            id="bpc-loas"
+            name="beneficio"
+            value="bpc-loas"
+            className="radioInput"
+            ref={register}
+          />
+          <label>BPC/LOAS</label>
+          <input
+            type="checkbox"
+            id="outrosBeneficio"
+            name="beneficio"
+            value="outrosBeneficio"
+            className="radioInput"
+            ref={register}
+          />
+          <label>Outros</label>
         </div>
         <label>Observações geral: </label>
-        <input type="text" />
+        <input 
+          type="text"
+          name="observacaoGeral"
+          ref={register}
+        />
         <label>Responsavel: </label>
-        <input type="text" />
+        <input 
+          type="text"
+          name="responsavel"
+          ref={register}
+        />
         <input type="submit" value="Salvar" className="formButton" />
       </form>
     </div>
