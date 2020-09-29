@@ -7,6 +7,8 @@ import api from '../../Services/api';
 export default function Register() {
   const onSubmit = (data) => {
     api.post("/questionario", {questionario : data})
+    alert("Cadastro realizado com sucesso.")
+    window.location.reload();
   }
   const { register, handleSubmit } = useForm();
 
