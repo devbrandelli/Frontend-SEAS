@@ -1,5 +1,6 @@
 import React from 'react';
-import Routes from '../src/routes'
+import Routes from './Routes/index';
+import { BrowserRouter } from 'react-router-dom'
 import './global.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -7,7 +8,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <div className="App">
-      <Routes />
+      <BrowserRouter>
+        <Routes />
+      </BrowserRouter>
     </div>
   );
 }

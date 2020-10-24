@@ -3,14 +3,19 @@ import { Nav, Navbar } from 'react-bootstrap'
 import './style.css';
 
 export default function Header() {
+  const handleLogoff = () => {
+    localStorage.clear();
+  }
   return (
     <>
       <Navbar variant="dark" className="navbar">
         <Navbar.Brand href="#home" >SEAS</Navbar.Brand>
         <Nav className="mr-auto">
-          <Nav.Link href="#home">Home</Nav.Link>
+          <Nav.Link href="/main">Home</Nav.Link>
           <Nav.Link href="#features">Usuarios</Nav.Link>
           <Nav.Link href="#pricing">Relatorios</Nav.Link>
+          <Nav.Link href="/cadastro">Cadastro</Nav.Link>
+          <Nav.Link href="/" onClick={handleLogoff} className="button-logoff">Sair</Nav.Link>
         </Nav>        
       </Navbar>
     </>

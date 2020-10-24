@@ -1,5 +1,5 @@
 .logon-container{
-  width: 100%;
+  width: 100vw;
   max-width: 1120px;
   height: 100vh;
   margin: 0 auto;
@@ -30,5 +30,13 @@
   margin-top: 8px;
 }
 
+@media (max-width: 450px) {
 
+  #image-winter{
+    display: none;
+  }
 
+  .logon-container section.form {
+    margin: auto;
+  }
+}

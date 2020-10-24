@@ -1,0 +1,55 @@
+form{
+    margin: 25px;
+}
+#hora {
+    margin-left: 10px;
+}
+.mainLabel{
+    min-width: 180px;
+}
+
+.formButton{
+    margin-top: 15px;
+}
+
+.radioInput{
+    width: 15px;
+    margin-left: 35px;
+}
+
+.radioLine{
+    display: flex;
+    flex-direction: row;
+}
+
+.radioLine label{
+    margin: auto 10px;
+}
+
+#sexoInput{
+    display: flex;
+    flex-direction: row;
+}
+
+#corInput{
+    display: flex;
+    flex-direction: row;    
+}
+
+#tempoJundiaiInput{
+    display: flex;
+    flex-direction: row;
+}
+#tempoRuaInput{
+    display: flex;
+    flex-direction: row;
+}
+
+#motivoRuaInput{
+    display: flex;
+    flex-direction: row;
+}
+#sairRuaInput{
+    display: flex;
+    flex-direction: row;
+}

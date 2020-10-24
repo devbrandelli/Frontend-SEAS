@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
 
 import logoImg from '../../Assets/logo.png';
-import image from '../../Assets/imageLogon.png'
+import image from '../../Assets/imageLogon.png';
 
-import api from '../../Services/api'
+import api from '../../Services/api';
 
 import './style.css';
 
@@ -35,7 +35,7 @@ export default function Logon() {
     <section className="form">
       <img src={logoImg} alt="SEAS" />
 
-      <form onSubmit={handleLogin} >
+      <form onSubmit={handleLogin} class="formLogin">
         <h1>Faça seu logon</h1>
         
         <input 
@@ -53,7 +53,7 @@ export default function Logon() {
         <button type="submit" className="button">Entrar</button>        
       </form>
     </section>
-    <img src={image} alt="winter"/>
+    <img src={image} alt="winter" id="image-winter"/>
   </div>
   );
 }
