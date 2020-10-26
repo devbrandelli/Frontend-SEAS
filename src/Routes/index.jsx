@@ -3,7 +3,8 @@ import { Switch } from 'react-router-dom';
 
 import Logon from '../Pages/Logon'
 import Main from '../Pages/Main'
-import Register from '../Pages/Register';
+import Cadastro from '../Pages/Cadastro';
+import Usuario from '../Pages/Usuario'
 
 import PrivateRoute from './privateRoutes'
 import LoginRoute from './loginRoute'
@@ -18,7 +19,10 @@ export default function Routes(){
           <Main/>
         </PrivateRoute>
         <PrivateRoute path="/cadastro">
-          <Register/>
+          <Cadastro/>
+        </PrivateRoute>
+        <PrivateRoute path="/usuario">
+          <Usuario/>
         </PrivateRoute>
       </Switch>
   )

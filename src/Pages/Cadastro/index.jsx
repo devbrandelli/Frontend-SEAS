@@ -6,6 +6,7 @@ import api from '../../Services/api';
 
 export default function Register() {
   const onSubmit = (data) => {
+    console.log(data)
     api.post("/questionario", {questionario : data})
     alert("Cadastro realizado com sucesso.")
     window.location.reload();
@@ -382,7 +383,7 @@ export default function Register() {
             />
             <label>Tratamento de saúde</label>
           </div>
-          <div className="radioLine">
+          {/* <div className="radioLine">
             <input
               type="checkbox"
               id="pernoite"
@@ -458,7 +459,7 @@ export default function Register() {
               ref={register}
             />
             <label>Pernoite, Banho e Alimentação</label>
-          </div>
+          </div> */}
         </div>
         <label>Qual meio de sobrevivencia: </label>
         <div id="motivoRuaInput">
