@@ -204,6 +204,17 @@ export default function Register() {
             />
             <label>2 anos ou mais</label>
           </div>
+          <div className="radioLine">
+            <input
+              type="radio"
+              id="nascido"
+              name="tempoJund"
+              value="nascido"
+              className="radioInput"
+              ref={register}
+            />
+            <label>Nascido</label>
+          </div>
         </div>
         <label>Tempo em situação de rua: </label>
         <div id="tempoRuaInput">
@@ -383,83 +394,83 @@ export default function Register() {
             />
             <label>Tratamento de saúde</label>
           </div>
-          {/* <div className="radioLine">
+          <div className="radioLine">
             <input
               type="checkbox"
-              id="pernoite"
+              id="mudancaVida"
               name="servicoBusca"
-              value="pernoite"
+              value="mudancaVida"
               className="radioInput"
               ref={register}
             />
-            <label>Pernoite, Banho e Alimentação</label>
+            <label>Mudança de Vida</label>
           </div>
           <div className="radioLine">
             <input
               type="checkbox"
-              id="pernoite"
+              id="sistemaJudiciario"
               name="servicoBusca"
-              value="pernoite"
+              value="sistemaJudiciario"
               className="radioInput"
               ref={register}
             />
-            <label>Pernoite, Banho e Alimentação</label>
+            <label>Sistema Judiciario</label>
           </div>
           <div className="radioLine">
             <input
               type="checkbox"
-              id="pernoite"
+              id="emprego"
               name="servicoBusca"
-              value="pernoite"
+              value="emprego"
               className="radioInput"
               ref={register}
             />
-            <label>Pernoite, Banho e Alimentação</label>
+            <label>Trabalho e renda</label>
           </div>
           <div className="radioLine">
             <input
               type="checkbox"
-              id="pernoite"
+              id="tratamentoDrogas"
               name="servicoBusca"
-              value="pernoite"
+              value="tratamentoDrogas"
               className="radioInput"
               ref={register}
             />
-            <label>Pernoite, Banho e Alimentação</label>
+            <label>Tratamento de saude(Alcool e Drogas)</label>
           </div>
           <div className="radioLine">
             <input
               type="checkbox"
-              id="pernoite"
+              id="moradia"
               name="servicoBusca"
-              value="pernoite"
+              value="moradia"
               className="radioInput"
               ref={register}
             />
-            <label>Pernoite, Banho e Alimentação</label>
+            <label>Moradia/Habitação</label>
           </div>
           <div className="radioLine">
             <input
               type="checkbox"
-              id="pernoite"
+              id="recambio"
               name="servicoBusca"
-              value="pernoite"
+              value="recambio"
               className="radioInput"
               ref={register}
             />
-            <label>Pernoite, Banho e Alimentação</label>
+            <label>Recambio/Passagem para outra cidade</label>
           </div>
           <div className="radioLine">
             <input
               type="checkbox"
-              id="pernoite"
+              id="outros"
               name="servicoBusca"
-              value="pernoite"
+              value="outros"
               className="radioInput"
               ref={register}
             />
-            <label>Pernoite, Banho e Alimentação</label>
-          </div> */}
+            <label>Outros</label>
+          </div>
         </div>
         <label>Qual meio de sobrevivencia: </label>
         <div id="motivoRuaInput">
@@ -567,10 +578,91 @@ export default function Register() {
           />
           <label>Outros</label>
         </div>
+        <label>Casos Especiais: </label>
+        <div className="radioLine">
+          <input
+            type="checkbox"
+            id="deficiente"
+            name="casosEspeciais"
+            value="deficiente"
+            className="radioInput"
+            ref={register}
+          />
+          <label>Deficientes</label>
+          <input
+            type="checkbox"
+            id="exploracaoSexual"
+            name="casosEspeciais"
+            value="exploracaoSexual"
+            className="radioInput"
+            ref={register}
+          />
+          <label>Exploração Sexual</label>
+          <input
+            type="checkbox"
+            id="gestante"
+            name="casosEspeciais"
+            value="gestante"
+            className="radioInput"
+            ref={register}
+          />
+          <label>Gestante</label>
+          <input
+            type="checkbox"
+            id="pessoaIdosa"
+            name="casosEspeciais"
+            value="pessoaIdosa"
+            className="radioInput"
+            ref={register}
+          />
+          <label>Pessoa Idosa</label>
+          <input
+            type="checkbox"
+            id="saudeMental"
+            name="casosEspeciais"
+            value="saudeMental"
+            className="radioInput"
+            ref={register}
+          />
+          <label>Saude Mental</label>
+          <input
+            type="checkbox"
+            id="conselhoTutelar"
+            name="casosEspeciais"
+            value="conselhoTutelar"
+            className="radioInput"
+            ref={register}
+          />
+          <label>Saude Mental</label>
+        </div>
+        <label>Equipe Composta: </label>
+        <input 
+          type="text"
+          name="equipeComposta"
+          ref={register}
+        />
+        <label>Pessoas Abordadas: </label>
+        <input 
+          type="number"
+          name="pessoasAbordadas"
+          ref={register}
+        />
         <label>Observações geral: </label>
         <input 
           type="text"
           name="observacaoGeral"
+          ref={register}
+        />
+        <label>Encaminhamento: </label>
+        <input 
+          type="text"
+          name="encaminhamento"
+          ref={register}
+        />
+        <label>Orientações: </label>
+        <input 
+          type="text"
+          name="orientacoes"
           ref={register}
         />
         <label>Responsavel: </label>
