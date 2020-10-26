@@ -5,11 +5,13 @@ import "./style.css";
 import api from '../../Services/api';
 
 export default function Register() {
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data)
-    api.post("/questionario", {questionario : data})
-    alert("Cadastro realizado com sucesso.")
-    window.location.reload();
+    await api.post("/questionario", {questionario : data})
+      alert("Cadastro realizado com sucesso.")
+      window.location.reload();
+    
+    
   }
   const { register, handleSubmit } = useForm();
 
