@@ -5,9 +5,11 @@ import "./style.css";
 import api from '../../Services/api';
 
 export default function Register() {
-  const onSubmit = async (data) => {
-    console.log(data)
-    await api.post("/questionario", {questionario : data})
+  const onSubmit = async (questionario) => {
+    questionario.data = new Date(questionario.data)
+    questionario.dataNascimento = new Date(questionario.dataNascimento)
+    console.log(questionario)
+    await api.post("/questionario", {questionario : questionario})
       alert("Cadastro realizado com sucesso.")
       window.location.reload();
     
@@ -37,7 +39,7 @@ export default function Register() {
         <input type="text" name="nomeAbordado" ref={register} />
         <label>
           Data de nascimento:
-          <input type="date" name="dataNascimento" />
+          <input type="date" name="dataNascimento" ref={register}/>
         </label>
         <br />
         <label className="mainLabel">Gênero: </label>
