@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { FiTrash2, FiEdit } from 'react-icons/fi'
-import Header from '../../Utils/Header'
+import Nav from '../../Utils/Nav'
 import Api from '../../Services/api'
 
 import './style.css'
@@ -22,7 +22,7 @@ export default function Main() {
   
   return (
     <>
-      <Header />
+      <Nav />
       <div className="container-reports">
         <ul>
           {data.map(quest => (

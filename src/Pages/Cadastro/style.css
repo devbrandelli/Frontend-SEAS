@@ -1,11 +1,37 @@
 form{
     margin: 25px;
 }
-#hora {
+
+.halfLabel {
+    display: flex;
+    flex-direction: row;
+}
+.halfLabel label {
+    margin-right: 10px;
+    line-height: 50px;
+}
+
+.halfLabel input {
+    max-width: 200px;
+    min-width: 150px;
+}
+
+.halfLabel input + label{
     margin-left: 10px;
 }
+
+#dataNascimento {
+    margin-top: 10px;
+    max-width: 200px;
+}
+
 .mainLabel{
     min-width: 180px;
+}
+
+.inputList {
+    display: flex;
+    flex-direction: row;
 }
 
 .formButton{
@@ -26,30 +52,18 @@ form{
     margin: auto 10px;
 }
 
-#sexoInput{
-    display: flex;
-    flex-direction: row;
+@media (max-width: 515px) {
+    .halfLabel {
+        display: grid;
+    }
+    .halfLabel input + label{
+        margin-left: 0px;
+    }
 }
 
-#corInput{
-    display: flex;
-    flex-direction: row;    
-}
-
-#tempoJundiaiInput{
-    display: flex;
-    flex-direction: row;
-}
-#tempoRuaInput{
-    display: flex;
-    flex-direction: row;
-}
-
-#motivoRuaInput{
-    display: flex;
-    flex-direction: row;
-}
-#sairRuaInput{
-    display: flex;
-    flex-direction: row;
+@media (max-width: 800px) {
+    .inputList {
+        display: flex;
+        flex-direction: column;
+    }
 }
