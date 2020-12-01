@@ -1,0 +1,14 @@
+.navbar {
+  background-color: #081B43;
+  width: 100%;
+}
+
+.button-logoff {
+  margin-right: auto;
+}
+
+@media(max-width: 600px) {
+  .nav-comun{
+    display: none !important;
+  }
+}

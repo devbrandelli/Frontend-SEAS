@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import Header from "../../Utils/Header";
+import Nav from "../../Utils/Nav";
 import "./style.css";
 import api from '../../Services/api';
 
@@ -19,31 +19,27 @@ export default function Register() {
 
   return (
     <div>
-      <Header />
+      <Nav />
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>Pagina de cadastro</div>
-        <label id="data">
-          Data:
-          <input type="date" name="data" ref={register} />
-        </label>
-        <label id="hora">
-          Hora:
+        <div className="halfLabel">
+          <label id="data" htmlFor="data"> Data: </label>
+          <input type="date" name="data" ref={register()}/>
+          <label id="hora" htmlFor="hora"> Hora:</label>
           <input type="time" name="hora" ref={register} />
-        </label>
-        <br />
-        <label>Local da abordagem: </label>
+        </div>
+        <label id="localAbordagem" htmlFor="localAbordagem" >Local da abordagem</label>
         <input type="text" name="localAbordagem" ref={register} />
-        <label>Motivo da abordagem: </label>
+        <label>Motivo da abordagem</label>
         <input type="text" name="motivoAbordagem" />
         <label>Nome do abordado</label>
         <input type="text" name="nomeAbordado" ref={register} />
-        <label>
-          Data de nascimento:
-          <input type="date" name="dataNascimento" ref={register}/>
-        </label>
-        <br />
+        <div className="halfLabel">
+          <label id="dataNascimento" htmlFor="dataNascimento" > Data de nascimento:</label>
+          <input type="date" name="dataNascimento" id="dataNascimento" ref={register}/>
+        </div>
         <label className="mainLabel">Gênero: </label>
-        <div id="sexoInput">
+        <div id="sexoInput" className="inputList">
           <div className="radioLine">
             <input
               type="radio"
@@ -101,7 +97,7 @@ export default function Register() {
           </div>
         </div>
         <label className="mainLabel">Cor: </label>
-        <div id="corInput">
+        <div id="corInput" className="inputList">
           <div className="radioLine">
             <input
               type="radio"
@@ -158,12 +154,12 @@ export default function Register() {
             <label>Indígena</label>
           </div>
         </div>
-        <label>Local de Nascimento: </label>
+        <label>Local de Nascimento</label>
         <input type="text" name="localNascimento" ref={register} />
-        <label>Local de Origem: </label>
+        <label>Local de Origem</label>
         <input type="text" name="localOrigem" ref={register} />
         <label className="mainLabel">Tempo em Jundiaí: </label>
-        <div id="tempoJundiaiInput">
+        <div id="tempoJundiaiInput" className="inputList">
           <div className="radioLine">
             <input
               type="radio"
@@ -221,7 +217,7 @@ export default function Register() {
           </div>
         </div>
         <label>Tempo em situação de rua: </label>
-        <div id="tempoRuaInput">
+        <div id="tempoRuaInput" className="inputList">
           <div className="radioLine">
             <input
               type="radio"
@@ -268,7 +264,7 @@ export default function Register() {
           </div>
         </div>
         <label>Motivo que levou para a rua: </label>
-        <div id="motivoRuaInput">
+        <div id="motivoRuaInput"  className="inputList">
           <div className="radioLine">
             <input
               type="checkbox"
@@ -337,7 +333,7 @@ export default function Register() {
           </div>
         </div>
         <label>Tem interesse em sair da rua: </label>
-        <div id="sairRuaInput">
+        <div id="sairRuaInput"  className="inputList">
           <div className="radioLine">
             <input
               type="radio"
@@ -364,7 +360,7 @@ export default function Register() {
         <label>O que precisa para sair da rua: </label>
         <input type="text" name="oquePrecisaSairRua" ref={register} />
         <label>Qual serviço busca: </label>
-        <div id="motivoRuaInput">
+        <div id="motivoRuaInput" className="inputList">
           <div className="radioLine">
             <input
               type="checkbox"
@@ -477,7 +473,7 @@ export default function Register() {
           </div>
         </div>
         <label>Qual meio de sobrevivencia: </label>
-        <div id="motivoRuaInput">
+        <div id="motivoRuaInput" className="inputList">
           <div className="radioLine">
             <input
               type="radio"
@@ -535,54 +531,65 @@ export default function Register() {
           </div>
         </div>
         <label>Recebe beneficio: </label>
-        <div className="radioLine">
-          <input
-            type="checkbox"
-            id="naoBeneficio"
-            name="beneficio"
-            value="naoBeneficio"
-            className="radioInput"
-            ref={register}
-          />
-          <label>Não</label>
-          <input
-            type="checkbox"
-            id="aposentadoria"
-            name="beneficio"
-            value="aposentadoria"
-            className="radioInput"
-            ref={register}
-          />
-          <label>Aposentadoria</label>
-          <input
-            type="checkbox"
-            id="bolsaFamilia"
-            name="beneficio"
-            value="bolsaFamilia"
-            className="radioInput"
-            ref={register}
-          />
-          <label>Bolsa Familia</label>
-          <input
-            type="checkbox"
-            id="bpc-loas"
-            name="beneficio"
-            value="bpc-loas"
-            className="radioInput"
-            ref={register}
-          />
-          <label>BPC/LOAS</label>
-          <input
-            type="checkbox"
-            id="outrosBeneficio"
-            name="beneficio"
-            value="outrosBeneficio"
-            className="radioInput"
-            ref={register}
-          />
-          <label>Outros</label>
+        <div id="motivoRuaInput" className="inputList">
+          <div className="radioLine">
+            <input
+              type="checkbox"
+              id="naoBeneficio"
+              name="beneficio"
+              value="naoBeneficio"
+              className="radioInput"
+              ref={register}
+            />
+            <label>Não</label>
+            </div>
+            <div className="radioLine">
+            <input
+              type="checkbox"
+              id="aposentadoria"
+              name="beneficio"
+              value="aposentadoria"
+              className="radioInput"
+              ref={register}
+            />
+            <label>Aposentadoria</label>
+            </div>
+            <div className="radioLine">
+            <input
+              type="checkbox"
+              id="bolsaFamilia"
+              name="beneficio"
+              value="bolsaFamilia"
+              className="radioInput"
+              ref={register}
+            />
+            <label>Bolsa Familia</label>
+            </div>
+            <div className="radioLine">
+            <input
+              type="checkbox"
+              id="bpc-loas"
+              name="beneficio"
+              value="bpc-loas"
+              className="radioInput"
+              ref={register}
+            />
+            <label>BPC/LOAS</label>
+            </div>
+            <div className="radioLine">
+            <input
+              type="checkbox"
+              id="outrosBeneficio"
+              name="beneficio"
+              value="outrosBeneficio"
+              className="radioInput"
+              ref={register}
+            />
+            <label>Outros</label>
+          </div>
         </div>
         <label>Casos Especiais: </label>
+        <div id="casosEspeciais" className="inputList">
         <div className="radioLine">
           <input
             type="checkbox"
@@ -593,6 +600,8 @@ export default function Register() {
             ref={register}
           />
           <label>Deficientes</label>
+          </div>
+          <div className="radioLine">
           <input
             type="checkbox"
             id="exploracaoSexual"
@@ -602,6 +611,8 @@ export default function Register() {
             ref={register}
           />
           <label>Exploração Sexual</label>
+          </div>
+          <div className="radioLine">
           <input
             type="checkbox"
             id="gestante"
@@ -611,6 +622,8 @@ export default function Register() {
             ref={register}
           />
           <label>Gestante</label>
+          </div>
+          <div className="radioLine">
           <input
             type="checkbox"
             id="pessoaIdosa"
@@ -620,6 +633,8 @@ export default function Register() {
             ref={register}
           />
           <label>Pessoa Idosa</label>
+          </div>
+          <div className="radioLine">
           <input
             type="checkbox"
             id="saudeMental"
@@ -629,6 +644,8 @@ export default function Register() {
             ref={register}
           />
           <label>Saude Mental</label>
+          </div>
+          <div className="radioLine">
           <input
             type="checkbox"
             id="conselhoTutelar"
@@ -638,6 +655,7 @@ export default function Register() {
             ref={register}
           />
           <label>Saude Mental</label>
+        </div>
         </div>
         <label>Equipe Composta: </label>
         <input 

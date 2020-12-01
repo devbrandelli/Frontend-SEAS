@@ -1,0 +1,9 @@
+.nav-dropdown{
+    display: none;
+}
+
+@media(max-width: 600px){
+    .nav-dropdown{
+        display: block;
+    }
+}
