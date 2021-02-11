@@ -1,66 +1,42 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { FiTrash2, FiEdit } from 'react-icons/fi'
+import React from 'react';
 import Nav from '../../Utils/Nav'
-import Api from '../../Services/api'
 
 import './style.css'
-import api from '../../Services/api';
+import { Table } from 'react-bootstrap';
 
-export default function Main() {
-  const [data, setData] = useState([])
-  const handleDelete = useCallback(
-    (id) => {
-    api.delete(`/questionario/${id}`)
-    setData(data.filter(data => data.id !== id))
-  },[data],
-  )
-  useEffect(()=>{
-    Api.get('/questionario').then(response =>{
-      setData(response.data.response)
-    })
-  },[handleDelete])
-  
-  return (
+export default function Usuario() {
+  return(
     <>
-      <Nav />
-      <div className="container-reports">
-        <ul>
-          {data.map(quest => (
-            <li key={quest._id}>
-              <div className="side-iten">
-                <strong>Nome do abordado:</strong>
-                <div className="side-button">
-                  <button 
-                    type="button" 
-                    className="delete-button"
-                    onClick={() => handleDelete(quest._id)}
-                  >
-                    <FiTrash2 size={20} color="#a8a8b3"/>
-                  </button>
-                  <button type="button" className="edit-button">
-                    <FiEdit size={20} color="#a8a8b3" />
-                  </button>
-                </div>
-              </div>
-              <p>{quest.nomeAbordado}</p>
-
-              <strong>Local da abordagem:</strong>
-              <p>{quest.localAbordagem}</p>
-              <div className="side-iten">
-                <div>
-                  <strong>Busca qual serviço?</strong>
-                  <p>{quest.servicoBusca[0]}</p>
-                </div>
-                <div>
-                  <strong>Responsavel pelo questionario</strong>
-                  <p>{quest.responsavel}</p>
-                </div>
-              </div>
-
-            </li>
-          ))}
-        </ul>
-      </div>
+      <Nav/>
+      <Table striped bordered hover variant="dark">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td colSpan="2">Larry the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </Table>
     </>
-  );
+  )
 }
