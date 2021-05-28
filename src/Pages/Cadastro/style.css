@@ -1,69 +1,8 @@
-form{
-    margin: 25px;
-}
-
-.halfLabel {
-    display: flex;
-    flex-direction: row;
-}
-.halfLabel label {
-    margin-right: 10px;
-    line-height: 50px;
-}
-
-.halfLabel input {
-    max-width: 200px;
-    min-width: 150px;
-}
-
-.halfLabel input + label{
-    margin-left: 10px;
-}
-
-#dataNascimento {
-    margin-top: 10px;
-    max-width: 200px;
-}
-
-.mainLabel{
-    min-width: 180px;
-}
-
-.inputList {
-    display: flex;
-    flex-direction: row;
-}
-
-.formButton{
-    margin-top: 15px;
-}
-
-.radioInput{
-    width: 15px;
-    margin-left: 35px;
-}
-
-.radioLine{
-    display: flex;
-    flex-direction: row;
-}
-
-.radioLine label{
-    margin: auto 10px;
-}
-
-@media (max-width: 515px) {
-    .halfLabel {
-        display: grid;
-    }
-    .halfLabel input + label{
-        margin-left: 0px;
-    }
-}
-
-@media (max-width: 800px) {
-    .inputList {
-        display: flex;
-        flex-direction: column;
-    }
+.popup-create {
+    height: 550px;
+    min-width: 700px;
+    background-color: #B0E0E6;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 2px;
 }

@@ -21,7 +21,7 @@ export default function Logon() {
       localStorage.setItem('token',response.data.token);
       localStorage.setItem('usuario', usuario)
       
-      history.push('/main');    
+      history.push('/cidadao');    
     }catch(er){
       alert("Falha no login")
       setSenha('')

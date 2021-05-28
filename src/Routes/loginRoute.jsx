@@ -12,7 +12,7 @@ export default function LoginRoute({children, ...rest }) {
         ) : (
           <Redirect
             to={{
-              pathname: "/main",
+              pathname: "/cidadao",
               state: { from: location }
             }}
           />
