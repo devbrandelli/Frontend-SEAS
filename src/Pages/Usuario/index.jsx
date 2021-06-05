@@ -1,66 +1,72 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { FiTrash2, FiEdit } from 'react-icons/fi'
+import React, { useEffect, useState, useCallback } from 'react';
 import Nav from '../../Utils/Nav'
 import Api from '../../Services/api'
+import { useHistory } from 'react-router-dom';
 
 import './style.css'
-import api from '../../Services/api';
+import { Table } from 'react-bootstrap';
+import { FiTrash2 } from 'react-icons/fi'
 
-export default function Main() {
-  const [data, setData] = useState([])
+export default function Usuario() {
+  const [users, setUsers] = useState([])
+  const history = useHistory();
+  
   const handleDelete = useCallback(
     (id) => {
-    api.delete(`/questionario/${id}`)
-    setData(data.filter(data => data.id !== id))
-  },[data],
+      console.log(id)
+      Api.delete(`/user/${id}`)
+      setUsers(users.filter(user => user.id !== id))
+    }, [users],
   )
-  useEffect(()=>{
-    Api.get('/questionario').then(response =>{
-      setData(response.data.response)
+
+  function getUsers() {
+    Api.get('/user').then(response => {
+      setUsers(response.data)
+    }, function(erro){
+      if(erro.response.status === 403){
+        localStorage.clear()
+        history.push("/")
+      }
     })
-  },[handleDelete])
-  
+  }
+
+  useEffect(() => {
+    getUsers()
+  }, [])
+
+
   return (
     <>
       <Nav />
-      <div className="container-reports">
-        <ul>
-          {data.map(quest => (
-            <li key={quest._id}>
-              <div className="side-iten">
-                <strong>Nome do abordado:</strong>
-                <div className="side-button">
-                  <button 
-                    type="button" 
-                    className="delete-button"
-                    onClick={() => handleDelete(quest._id)}
-                  >
-                    <FiTrash2 size={20} color="#a8a8b3"/>
-                  </button>
-                  <button type="button" className="edit-button">
-                    <FiEdit size={20} color="#a8a8b3" />
-                  </button>
-                </div>
-              </div>
-              <p>{quest.nomeAbordado}</p>
-
-              <strong>Local da abordagem:</strong>
-              <p>{quest.localAbordagem}</p>
-              <div className="side-iten">
-                <div>
-                  <strong>Busca qual serviço?</strong>
-                  <p>{quest.servicoBusca[0]}</p>
-                </div>
-                <div>
-                  <strong>Responsavel pelo questionario</strong>
-                  <p>{quest.responsavel}</p>
-                </div>
-              </div>
-
-            </li>
+      <Table striped bordered hover variant="dark">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nome completo</th>
+            <th>Email</th>
+            <th>Usuario</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map(user => (
+            <tr key={user.id}>
+              <td>{user.id}</td>
+              <td>{user.nomeCompleto}</td>
+              <td>{user.email}</td>
+              <td>{user.usuario}</td>
+              <td>
+                <button
+                  type="button"
+                  className="delete-button"
+                  onClick={() => handleDelete(user.id)}
+                >
+                  <FiTrash2 size={20} color="#a8a8b3" />
+                </button>
+              </td>
+            </tr>
           ))}
-        </ul>
-      </div>
+        </tbody>
+      </Table>
     </>
-  );
+  )
 }

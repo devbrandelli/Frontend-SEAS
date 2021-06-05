@@ -17,7 +17,7 @@ export default function Header() {
             <Nav.Link href="/main">Home</Nav.Link>
           </NavItem>
           <NavItem as="li">
-            <Nav.Link href="#features">Usuarios</Nav.Link>
+            <Nav.Link href="/usuario">Usuarios</Nav.Link>
           </NavItem>
           <NavItem as="li">
             <Nav.Link href="#pricing">Relatorios</Nav.Link>
